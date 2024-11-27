@@ -1,6 +1,6 @@
 # Find Outlook add-ins that use legacy Exchange Online tokens
 
-Legacy Exchange Online tokens are deprecated and will begin being turned off across Microsoft 365 tenants in February 2025. If you are a Microsoft 365 administrator, you should check if any Outlook add-ins deployed in your tenant are using legacy Exchange Online tokens. If they are, we recommend you reach out to publishers and developers of those add-ins to ensure they are migrating their add-ins away from legacy tokens. Add-ins that continue to use legacy tokens will eventually break when the legacy tokens are turned off beginning February 2025.
+Legacy Exchange Online tokens are deprecated and will begin being turned off across Microsoft 365 tenants in February 2025. If you are a Microsoft 365 administrator, you should check if any Outlook add-ins deployed in your tenant are using legacy Exchange Online tokens. If they are, we recommend you reach out to publishers and developers of those add-ins to ensure they are migrating their add-ins away from legacy tokens. Add-ins that continue to use legacy tokens won't work correctly when the legacy tokens are turned off beginning February 2025.
 
 For more information about deprecation of legacy tokens, see [Nested app authentication and Outlook legacy tokens deprecation FAQ](https://aka.ms/NAAFAQ).
 
@@ -41,7 +41,7 @@ Next, run the following command in PowerShell to get a list of organization add-
 
 The command lists all organization add-ins deployed on your tenant. The **MarketplaceAssetID** lists the asset ID of any add-ins deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
 
-Add-ins without a value for the ** MarketplaceAssetID ** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+Add-ins without a value for the **MarketplaceAssetID** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
 **Note:** If the **ProviderName** is Microsoft, those add-ins are already being migrated and will be updated by February 2025.
 
@@ -74,5 +74,3 @@ Add-ins that don’t have an asset id are deployed through central deployment or
 ## More resources
 
 For more information about deprecation of legacy Exchange Online tokens, and administrator questions, see [Nested app authentication and Outlook legacy tokens deprecation FAQ](https://aka.ms/NAAFAQ).
-
-
