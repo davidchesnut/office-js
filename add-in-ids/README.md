@@ -45,6 +45,8 @@ The command lists all organization add-ins deployed on your tenant. The **Market
 
 Add-ins without a value for the **MarketplaceAssetID** are centrally deployed. These can’t be found in the spreadsheet. 
 
+For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+
 **Note:** If the **ProviderName** is Microsoft, those add-ins are already being migrated and will be updated by February 2025.
 
 ## Get a list of all add-ins deployed by users
