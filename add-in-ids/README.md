@@ -57,7 +57,7 @@ The command exports an `add-in-list-export.csv` file with a list of all add-ins 
 
 Open the `add-in-list-export.csv` file in Excel. If the list doesn't open with the correct columns, go to the **Data** tab, in the **Get & Transform Data group**, and choose **From Text/CSV**.
 
-The **MarketplaceAssetID** column will list an asset ID if the add-in was deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
+The **MarketplaceAssetID** column will list an asset ID if the add-in was deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. 
 
 Add-ins that don't have a **MarketplaceAssetID** were deployed by the user from the organization or by sideloading. These aren’t listed in the spreadsheet and are either line-of-business add-ins or 3rd party add-ins. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
