@@ -10,7 +10,7 @@ The following procedures in this README show how to find Outlook add-ins deploye
 
 This folder contains the [add-ins-using-exchange-tokens.xlsx](/add-ins-using-exchange-tokens.xlsx) spreadsheet. The spreadsheet contains a list of all Outlook add-ins published in the Microsoft store that were using legacy tokens as of October 2024. You can use the spreadsheet to look up any add-in by its asset ID. All add-ins published to the store have a unique Asset ID.
 
-Note: The list is also available as a CSV file in [add-ins-using-exchange-tokens.csv](add-ins-using-exchange-tokens.csv). 
+**Note:** The list is also available as a CSV file in [add-ins-using-exchange-tokens.csv](add-ins-using-exchange-tokens.csv). 
 
 ## Open PowerShell and sign in
 
@@ -31,11 +31,7 @@ Run the following command to get a list of all add-ins deployed at the organizat
 
 - `Get-OrganizationAddIn | Select-Object -Property DisplayName, AssetID, ProductID, ProviderName`
 
-The command lists all add-ins you deployed on your tenant. If any add-ins have a value for the **AssetID** then they are deployed from the Microsoft store and you can search the `add-ins-using-exchange-tokens.xlsx` spreadsheet to see if they use legacy tokens. 
-
-Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. 
-
-For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+The command lists all add-ins you deployed on your tenant. If any add-ins have a value for the **AssetID** then they are deployed from the Microsoft store and you can search the `add-ins-using-exchange-tokens.xlsx` spreadsheet to see if they use legacy tokens. Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
 Next, run the following command in PowerShell to get a list of organization add-ins. This list may include additional add-ins not found from the previous command.
 
