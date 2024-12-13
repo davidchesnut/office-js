@@ -41,7 +41,7 @@ Next, run the following command in PowerShell to get a list of organization add-
 
 - `Get-App -OrganizationApp | ft DisplayName, MarketplaceAssetID, AppId, ProviderName`
 
-The command lists all organization add-ins deployed on your tenant. The **MarketplaceAssetID** lists the asset ID of any add-ins deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
+The command lists all organization add-ins deployed on your tenant. The **MarketplaceAssetID** lists the asset ID of any add-ins deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. 
 
 Add-ins without a value for the **MarketplaceAssetID** are centrally deployed. These can’t be found in the spreadsheet. 
 
