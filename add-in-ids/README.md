@@ -61,6 +61,8 @@ The **MarketplaceAssetID** column will list an asset ID if the add-in was deploy
 
 Add-ins that don't have a **MarketplaceAssetID** were deployed by the user from the organization or by sideloading. These aren’t listed in the spreadsheet and are either line-of-business add-ins or 3rd party add-ins. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
+For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+
 ## Determine if Microsoft store add-ins are using legacy tokens
 
 When you run the Get-OrganizationAddIn command it returns an **AssetID** column. The Get-App command returns a **MarketplaceAssetID** column which is equivalent to **AssetID**. The asset id is a unique value assigned to an add-in when published to the Microsoft store. Any add-ins with an asset id are deployed from the Microsoft store and can be looked up in the spreadsheet to see if they use legacy tokens.
