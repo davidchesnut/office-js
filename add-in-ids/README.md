@@ -10,7 +10,7 @@ The following procedures in this README show how to find Outlook add-ins deploye
 
 This folder contains the [add-ins-using-exchange-tokens.xlsx](/add-ins-using-exchange-tokens.xlsx) spreadsheet. The spreadsheet contains a list of all Outlook add-ins published in the Microsoft store that were using legacy tokens as of October 2024. You can use the spreadsheet to look up any add-in by its asset ID. All add-ins published to the store have a unique Asset ID.
 
-Note: The list is also available as a CSV file in [add-ins-using-exchange-tokens.csv](add-ins-using-exchange-tokens.csv). 
+**Note:** The list is also available as a CSV file in [add-ins-using-exchange-tokens.csv](add-ins-using-exchange-tokens.csv). 
 
 ## Open PowerShell and sign in
 
@@ -31,17 +31,17 @@ Run the following command to get a list of all add-ins deployed at the organizat
 
 - `Get-OrganizationAddIn | Select-Object -Property DisplayName, AssetID, ProductID, ProviderName`
 
-The command lists all add-ins you deployed on your tenant. If any add-ins have a value for the **AssetID** then they are deployed from the Microsoft store and you can search the `add-ins-using-exchange-tokens.xlsx` spreadsheet to see if they use legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
-
-Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+The command lists all add-ins you deployed on your tenant. If any add-ins have a value for the **AssetID** then they are deployed from the Microsoft store and you can search the `add-ins-using-exchange-tokens.xlsx` spreadsheet to see if they use legacy tokens. Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
 Next, run the following command in PowerShell to get a list of organization add-ins. This list may include additional add-ins not found from the previous command.
 
 - `Get-App -OrganizationApp | ft DisplayName, MarketplaceAssetID, AppId, ProviderName`
 
-The command lists all organization add-ins deployed on your tenant. The **MarketplaceAssetID** lists the asset ID of any add-ins deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
+The command lists all organization add-ins deployed on your tenant. The **MarketplaceAssetID** lists the asset ID of any add-ins deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. 
 
-Add-ins without a value for the **MarketplaceAssetID** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+Add-ins without a value for the **MarketplaceAssetID** are centrally deployed. These can’t be found in the spreadsheet. 
+
+For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
 **Note:** If the **ProviderName** is Microsoft, those add-ins are already being migrated and will be updated by February 2025.
 
@@ -55,9 +55,11 @@ The command exports an `add-in-list-export.csv` file with a list of all add-ins 
 
 Open the `add-in-list-export.csv` file in Excel. If the list doesn't open with the correct columns, go to the **Data** tab, in the **Get & Transform Data group**, and choose **From Text/CSV**.
 
-The **MarketplaceAssetID** column will list an asset ID if the add-in was deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
+The **MarketplaceAssetID** column will list an asset ID if the add-in was deployed from the Microsoft store. You can search the spreadsheet to see if these are using legacy tokens. 
 
-Add-ins that don't have a **MarketplaceAssetID** were deployed by the user from the organization or by sideloading. These aren’t listed in the spreadsheet and are either line-of-business add-ins or 3rd party add-ins. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+Add-ins that don't have a **MarketplaceAssetID** were deployed by the user from the organization or by sideloading. These aren’t listed in the spreadsheet and are either line-of-business add-ins or 3rd party add-ins. 
+
+For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
 
 ## Determine if Microsoft store add-ins are using legacy tokens
 
