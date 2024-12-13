@@ -35,6 +35,8 @@ The command lists all add-ins you deployed on your tenant. If any add-ins have a
 
 Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. 
 
+For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+
 Next, run the following command in PowerShell to get a list of organization add-ins. This list may include additional add-ins not found from the previous command.
 
 - `Get-App -OrganizationApp | ft DisplayName, MarketplaceAssetID, AppId, ProviderName`
