@@ -33,7 +33,7 @@ Run the following command to get a list of all add-ins deployed at the organizat
 
 The command lists all add-ins you deployed on your tenant. If any add-ins have a value for the **AssetID** then they are deployed from the Microsoft store and you can search the `add-ins-using-exchange-tokens.xlsx` spreadsheet to see if they use legacy tokens. For next steps, see [Determine if Microsoft store add-ins are using legacy tokens](#determine-if-microsoft-store-add-ins-are-using-legacy-tokens).
 
-Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. For next steps, see [Determine if centrally deployed add-ins are using legacy tokens](#determine-if-centrally-deployed-add-ins-are-using-legacy-tokens).
+Add-ins without a value for the **AssetID** are centrally deployed. These can’t be found in the spreadsheet. 
 
 Next, run the following command in PowerShell to get a list of organization add-ins. This list may include additional add-ins not found from the previous command.
 
