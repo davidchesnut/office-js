@@ -1,116 +1,50 @@
-[![NPM Deployment Status](https://travis-ci.org/OfficeDev/office-js.svg?branch=release)](https://travis-ci.org/OfficeDev/office-js/builds)
+# Office JavaScript APIs for Office Add-ins
 
-# Office JavaScript APIs
+Use Office.js amd the Office Add-ins platform to build solutions that extend Office applications and interact with content in Office documents and in Outlook mail messages and calendar items. With Office Add-ins, you can use familiar web technologies such as HTML, CSS, and JavaScript to build solutions that can run in Office on the web, Windows, Mac, and mobile. You'll find walkthroughs, samples, and more information in the official [Office Add-ins documentation](https://learn.microsoft.com/office/dev/add-ins/).
 
-The JavaScript API for Office enables you to create web applications that interact with the object models in Office host applications. Your application will reference the office.js library, which is a script loader. The office.js library loads the object models applicable to the Office application running the add-in.
+## This repository
 
-<br />
+This GitHub repository is primarily used to report issues found in the Office JavaScript APIs. The NPM package associated with this repo is no longer officially supported. Your add-in should get the JavaScript library from the Office content delivery network (CDN), as described in the section [Reference Office.js from the CDN](#reference-officejs-from-the-cdn). This ensures that essential product updates are served quickly to the Office Add-ins. Given that the latest Office.js release is backward-compatible with prior releases, it's safe to update to the most recent release of the library when one is available. If you need to access the library in a secure cloud environment, download the necessary files from the CDN and bundle them with your add-in.
 
-## About the NPM package
+## Report issues
 
-The NPM package for Office.js is a copy of what gets published to the official "evergreen" Office.js CDN, at **<https://appsforoffice.microsoft.com/lib/1/hosted/office.js>**.
+If you believe you have found an issue (bug) with the Office JavaScript APIs, please visit the [issues tab](https://github.com/OfficeDev/office-js/issues) of this repo. If your issue is already reported, consider adding additional context or reproduction steps. Otherwise, select **New issue**, choose **Bug report**, and provide as much detail as possible. A member of our team will respond within 1-2 business days.
 
-The Office.js CDN contains all currently available Office.js APIs at any moment in time.
+### Feature requests
 
-Each Office.js NPM package contains only Office.js APIs available on the Office.js CDN when the NPM package version was created.
+Requests for new platform features should be raised at the [Microsoft 365 Developer Platform Tech Community site](https://aka.ms/m365dev-suggestions). Upvoted requests will be considered by our team for inclusion into the product.
 
-### Target scenarios
+### Other questions
 
-The NPM package for Office.js is intended as a way to obtain an offline copy (non-CDN) of the Office.js files, which can then be statically serve from your own site instead of using the CDN.
+Questions about developing add-ins and how to use the APIs should be raised on [Stack Overflow](https://stackoverflow.com/questions/tagged/office-js) with the "office-js" tag or on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/321/office-development) with the "Office Development" tag. These locations are monitored by a community of experts, which includes members of our product team. They will review questions and provide assistance as they are able.
 
-This NPM package is provided for the following scenarios.
+## Reference Office.js from the CDN
 
-1. Development of an add-in behind a firewall, when accessing the Office.js CDN isn't possible.
-2. Offline access to the Office.js APIs to facilitate offline debugging.
-
-**Important**: Office Add-ins published to AppSource must use the CDN reference. Offline Office.js references are only appropriate for internal development and debugging scenarios.
-
-### Best practices
-
-Best practices for using the Office.js NPM package include:
-
-- Refreshing the NPM package periodically to access new APIs and bug fixes.
-
-- [Using the NPM package according to the instructions](#use-the-npm-package). Do not import the NPM package as commonly done with other NPM packages.
-
-- Do not use the NPM package in an add-in intended for publication to [AppSource](https://appsource.microsoft.com/marketplace/apps?product=office). Add-ins that are published to AppSource must use the Office.js CDN.
-
-- [Using TypeScript definitions for Office.js](#intellisense-definitions).
-
-### Support
-
-The Office.js CDN is the official supported source for Office Add-ins.
-
-For the NPM package sourced through this repository, only the latest version of the package is supported. No support and no patches will be provided for previous versions of the package. The frequency of the updates to this repository and related NPM package to match the CDN version is not guaranteed.
-
-Outlook add-ins don't support hosting Office.js offline due to network access requirements for dependencies like the Microsoft Ajax library.
-
-<br />
-
-## Install the NPM package
-
-To install "office-js" locally via the NPM package, run the following command.
-
-> npm install @microsoft/office-js --save
-
-<br />
-
-Our policy requires that developers always reference the latest version of Office.js library. This is to ensure that essential product updates are served quickly to the Office Add-ins by always referencing the latest release of the library for a given version, such as Generally Available (GA) version. Given that the latest Office.js release is backward-compatible with prior releases, it's safe to update to the most recent release of the library when one is available. Hence, only the latest version of Office.js NPM package is made available for installation.
-
-## Use the NPM package
-
-Installing the NPM package locally creates a set of static Office.js files in the `node_modules\@microsoft\office-js\dist` folder of the directory where you ran the `npm install` command. To use the NPM package, do the following:
-
-1. Either manually or as part of a build script (e.g., `CopyWebpackPlugin` if you're using Webpack) have the files served from a destination of your choosing (e.g., from the `/assets/office-js/` directory of your web server).
-
-2. Reference that location in a `<script>` tag within the HTML file in your add-in project.
-
-For example, if you add the contents of the `dist` folder to the `assets/office-js` directory of your project, then you'd add the following `<script>` tag to your HTML file:
+The Office CDN is the official supported source for Office Add-ins. Reference the Office.js library in the CDN by adding the following `<script>` tag within the `<head>` section of your HTML page.
 
 ```html
-<script src="/assets/office-js/office.js"></script>
+<head>
+    ...
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js" type="text/javascript"></script>
+</head>
 ```
 
-<br />
+This will download and cache the Office JavaScript API files the first time your add-in loads to make sure that it is using the most up-to-date implementation of Office.js and its associated files for the specified version. For more information, including how to reference preview APIs, see [Referencing the Office JavaScript API library](https://learn.microsoft.com/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn).
+
+Government clouds may need to reference a special version of the CDN. For more information, see [Guidance for deploying Office Add-ins on government clouds](https://learn.microsoft.com/office/dev/add-ins/publish/government-cloud-guidance).
 
 ## IntelliSense definitions
 
-TypeScript definitions for Office.js are available.
+TypeScript definitions for Office.js are available on DefinitelyTyped.
 
 - latest **RELEASE** version of Office.js:
   - DefinitelyTyped: <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/office-js/index.d.ts>
   - @types: `@types/office-js`
   > npm install @types/office-js --save-dev
-- latest **BETA** version of Office.js:
+- latest **PREVIEW** version of Office.js:
   - DefinitelyTyped: <https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/office-js-preview/index.d.ts>
   - @types: `@types/office-js-preview`.
   > npm install @types/office-js-preview --save-dev
-- **any** version:
-  - Inside of the NPM package, under `dist/office.d.ts`
-  - In this repo: [dist/office.d.ts](dist/office.d.ts)
-
-### Use TypeScript definitions with the NPM package
-
-If you're using the Office.js NPM package for the [firewall scenario](#target-scenarios) and want a d.ts file that precisely matches the JS contents, use the d.ts file that's located within the `/dist/office.d.ts` folder of the NPM package. Achieve this by using a [triple-slash reference](https://www.typescriptlang.org/docs/handbook/triple-slash-directives.html).
-
-- **TIP**: If you create a `references.ts` file at the root of the project, simply point the reference to `office.d.ts` there.
-
-If you don't need the [firewall scenario](#target-scenarios), don't use the Office.js NPM package. Obtain the TypeScript definitions by using `@types/office-js` and reference the Office.js CDN at <https://appsforoffice.microsoft.com/lib/1/hosted/office.js>.
-
-### Enable IntelliSense in Visual Studio
-
-Visual Studio 2017+ can use these same TypeScript definitions, even for regular JavaScript. For JavaScript IntelliSense in earlier versions of Visual Studio, an `office-vsdoc.js` is available alongside the `office.js` file. As long as you have a `Scripts/_references.js` file in your VS project, and as long as you substitute the existing triple-slash reference (`/// <reference path="https://.../office.js" />`) with the new location (the `-vsdoc` part gets substituted automatically, so use it just as you would in a `<script src="">` reference), you should have the corresponding JavaScript IntelliSense.
-
-## NPM Package Versions
-
-Office.js versioning is described in detail in <https://learn.microsoft.com/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn>. Importantly, there's a difference between what's in the JS files versus what are the capabilities of a particular computer (i.e., older or slower-to-update versions of Office).
-
-The NPM package and the repo branches assume the following structure.
-
-| GitHub branch name    | NPM tag name  | Description |
-| ------------------    |-------------- |-------------|
-| `release`             | `latest`      | Identical to a previous release on <https://appsforoffice.microsoft.com/lib/1/hosted/office.js> <br/><br/> The latest released publicly-available APIs.   |
-| `beta`                | `beta`        | Identical to a previous release on <https://appsforoffice.microsoft.com/lib/beta/hosted/office.js> <br/><br/>  Forthcoming APIs, not necessarily ready for public consumption that may change. Possibly available on [Insider Fast (and maybe Insider Slow) builds](https://products.office.com/office-insider). |
 
 ## Code of Conduct
 
