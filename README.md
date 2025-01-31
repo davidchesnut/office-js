@@ -16,7 +16,7 @@ Requests for new platform features should be raised at the [Microsoft 365 Develo
 
 ### Other questions
 
-Questions about developing add-ins and how to use the APIs should be raised on [Stack Overflow](https://stackoverflow.com/questions/tagged/office-js) with the "office-js" tag. There, a community of experts, which includes members of our product team, will review questions and provide assistance as they are able.
+Questions about developing add-ins and how to use the APIs should be raised on [Stack Overflow](https://stackoverflow.com/questions/tagged/office-js) with the "office-js" tag or on [Microsoft Q&A](https://learn.microsoft.com/answers/tags/321/office-development) with the "Office Development" tag. These locations are monitored by a community of experts, which includes members of our product team. They will review questions and provide assistance as they are able.
 
 ## Reference Office.js from the CDN
 
@@ -30,6 +30,8 @@ The Office CDN is the official supported source for Office Add-ins. Reference th
 ```
 
 This will download and cache the Office JavaScript API files the first time your add-in loads to make sure that it is using the most up-to-date implementation of Office.js and its associated files for the specified version. For more information, including how to reference preview APIs, see [Referencing the Office JavaScript API library](https://learn.microsoft.com/office/dev/add-ins/develop/referencing-the-javascript-api-for-office-library-from-its-cdn).
+
+Government clouds may need to reference a special version of the CDN. For more information, see [Guidance for deploying Office Add-ins on government clouds](https://learn.microsoft.com/office/dev/add-ins/publish/government-cloud-guidance).
 
 ## IntelliSense definitions
 
